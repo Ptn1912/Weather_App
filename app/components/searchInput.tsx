@@ -2,13 +2,13 @@ import React from 'react';
 import { View, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-const SearchInput = ({ city, setCity, fetchWeather }:SearchInputProps) => {
+const SearchInput = ({ cityName, setCityName, fetchWeather }:SearchInputProps) => {
   const handleInputChange = (text:string) => {
     const japaneseRegex = /[\u3040-\u30FF\u4E00-\u9FAF\u3400-\u4DBF]/;
     if (japaneseRegex.test(text)) {
       Alert.alert("半角英数で入力してください");
     } else {
-      setCity(text);
+      setCityName(text);
     }
   };
   return (
@@ -16,7 +16,7 @@ const SearchInput = ({ city, setCity, fetchWeather }:SearchInputProps) => {
       <TextInput
         style={styles.input}
         placeholder="Enter City"
-        value={city}
+        value={cityName}
         onChangeText={handleInputChange}
       />
       <TouchableOpacity onPress={fetchWeather}>

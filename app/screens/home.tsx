@@ -11,12 +11,12 @@ const height = Dimensions.get('window').height;
 const API_KEY = 'ff145875c252cf31aa626b0e4bc59207'; 
 
 const Home = () => {
-  const [city, setCity] = useState('');
+  const [cityName, setCityName] = useState('');
   const [weather, setWeather] = useState<any>(null);
 
   const handleFetchWeather = async () => {
     try {
-      const data = await fetchWeather(city);
+      const data = await fetchWeather(cityName);
       setWeather(data);
     } catch (error: any) {
       Alert.alert('Error', error.message);
@@ -44,7 +44,7 @@ const Home = () => {
     <View style={styles.background}>
       <Image style={styles.image} source={getBackGroundImage()} />
       <View style={styles.container}>
-        <SearchInput city={city} setCity={setCity} fetchWeather={handleFetchWeather} />
+        <SearchInput cityName={cityName} setCityName={setCityName} fetchWeather={handleFetchWeather} />
         {weather && <WeatherInfo weather={weather} getIconImage={getIconImage} />}
       </View>
     </View>

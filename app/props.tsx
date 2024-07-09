@@ -1,6 +1,6 @@
 type SearchInputProps= {
-    city: string;
-    setCity: (city: string) => void;
+    cityName: string;
+    setCityName: (cityName: string) => void;
     fetchWeather: () => void;
   }
   type Props= {
